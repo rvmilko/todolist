@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Task;
+use App\Repository\TaskRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -92,6 +93,30 @@ class TaskController extends AbstractController
         $entityManager->flush();
 
         return $this->json('Deleted a task successfully with id ' . $id);
+    }
+
+    #[Route('/tasks', name: 'filter_by_status', methods: ['get'])]
+    public function statusFilter(Request $request, TaskRepository $taskRepository, EntityManagerInterface $entityManager): JsonResponse
+    {
+        if($request->query->get('filter_by_status')) {
+            $filter = $entityManager->getFilters()->enable('status_filter');
+            $filter->setParameter('status', '1');
+        }
+
+        $tasks = $entityManager->getRepository(Task::class)->findAll();
+
+        $data = [];
+
+        foreach ($tasks as $task) {
+            $data[] = [
+                'id' => $task->getId(),
+                'title' => $task->getTitle(),
+                'description' => $task->getDescription(),
+                'status' => $task->getStatus(),
+            ];
+        }
+
+        return $this->json($data);
     }
 
     /**
