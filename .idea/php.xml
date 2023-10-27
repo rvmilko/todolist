@@ -166,6 +166,15 @@
       <path value="$PROJECT_DIR$/../../deepweb/projects/dpl/vendor/illuminate/contracts" />
       <path value="$PROJECT_DIR$/../../deepweb/projects/dpl/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/../../deepweb/projects/dpl/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
